@@ -1,6 +1,6 @@
 {
   "name": "jest-store-log",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Simple one class library to for storing the console output with jest",
   "main": "dist/index.js",
   "scripts": {

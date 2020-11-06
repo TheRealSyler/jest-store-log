@@ -1,5 +1,5 @@
 export class JestStoreLog {
-  /**string `console.log` function. */
+  /**@deprecated use the logs property instead. */
   data = '';
 
   logs: any[] = [];
