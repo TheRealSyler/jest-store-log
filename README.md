@@ -1,5 +1,5 @@
 <span id="BADGE_GENERATION_MARKER_0"></span>
-[![npmV](https://img.shields.io/npm/v/y?color=green)](https://www.npmjs.com/package/y) [![min](https://img.shields.io/bundlephobia/min/y)](https://bundlephobia.com/result?p=y) [![install](https://badgen.net/packagephobia/install/y)](https://packagephobia.now.sh/result?p=y) [![githubLastCommit](https://img.shields.io/github/last-commit/TheRealSyler/jest-store-log)](https://github.com/TheRealSyler/jest-store-log)
+[![npmV](https://img.shields.io/npm/v/y?color=green)](https://www.npmjs.com/package/y) [![min](https://img.shields.io/bundlephobia/min/y)](https://bundlephobia.com/result?p=y) [![install](https://badgen.net/packagephobia/install/y)](https://packagephobia.now.sh/result?p=y) [![githubLastCommit](https://img.shields.io/github/last-commit/TheRealSyler/jest-store-log)](https://github.com/TheRealSyler/jest-store-log) [![codecov](https://codecov.io/gh/TheRealSyler/jest-store-log/branch/master/graph/badge.svg)](https://codecov.io/gh/TheRealSyler/jest-store-log) [![circleci](https://img.shields.io/circleci/build/github/TheRealSyler/jest-store-log)](https://app.circleci.com/github/TheRealSyler/jest-store-log/pipelines)
 <span id="BADGE_GENERATION_MARKER_1"></span>
 
 # Usage
