@@ -3,6 +3,8 @@ interface Options {
   error?: boolean;
   /**mock the console.warn function */
   warn?: boolean;
+  /* add stdout.write listener   */
+  stdout?: boolean;
 }
 
 export class JestStoreLog {
@@ -14,20 +16,28 @@ export class JestStoreLog {
   warnings: any[] = [];
   /**stores data from the console.error function, the error option has to be enabled. */
   errors: any[] = [];
-  /**stores data from the console.[log|warn|error] functions. */
+
+  /**stores data. */
   all: any[] = [];
+
+  /**stores data from the process.stdout.write function, the stdout option has to be enabled. */
+  stdout: (string | Uint8Array)[] = [];
 
   private oldConsoleLog = console['log'];
   private oldConsoleError = console['error'];
   private oldConsoleWarn = console['warn'];
+  private oldStdoutWrite = process.stdout.write;
   constructor(private option?: Options) {
-    console['log'] = jest.fn(this.storeLog);
+    console['log'] = this.storeLog;
     if (this.option) {
+      if (this.option.stdout) {
+        process.stdout.write = this.storeStdoutWrite.bind(this);
+      }
       if (this.option.error) {
-        console['error'] = jest.fn(this.storeError);
+        console['error'] = this.storeError;
       }
       if (this.option.warn) {
-        console['warn'] = jest.fn(this.storeWarn);
+        console['warn'] = this.storeWarn;
       }
     }
   }
@@ -48,6 +58,13 @@ export class JestStoreLog {
     this.warnings.push(...inputs);
   };
 
+  private storeStdoutWrite(buffer: string | Uint8Array) {
+    this.all.push(buffer);
+    this.stdout.push(buffer);
+
+    return true;
+  }
+
   /**@deprecated use the restore method instead. */
   TestEnd() {
     this.restore();
@@ -56,6 +73,9 @@ export class JestStoreLog {
   restore() {
     console.log = this.oldConsoleLog;
     if (this.option) {
+      if (this.option.stdout) {
+        process.stdout.write = this.oldStdoutWrite;
+      }
       if (this.option.error) {
         console.error = this.oldConsoleError;
       }
