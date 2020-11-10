@@ -1,6 +1,6 @@
 {
   "badges": {
-    "name": "y",
+    "name": "jest-store-log",
     "github": "TheRealSyler",
     "repo": "jest-store-log",
     "out": "README.md",
@@ -13,7 +13,6 @@
       "circleci circleci"
     ]
   },
-
   "license": {
     "name": "Leonard Grosoli",
     "type": "mit",
